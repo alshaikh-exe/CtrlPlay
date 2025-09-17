@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
-from .models import Game, Cart, Order
+from .models import Game, Cart, Order, Wishlist
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .forms import ReviewForm
 from django.contrib.auth.views import LoginView
@@ -99,4 +99,19 @@ def checkout(request):
 def order_detail(request, order_id):
     order = get_object_or_404(Order, id=order_id, user=request.user)
     return render(request, "orders/detail.html", {"order": order})
+
+def wishlist_toggle(request, game_id):
+    game = get_object_or_404(Game, id=game_id)
+    wishlist, created = Wishlist.objects.get_or_create(user=request.user)
+
+    if game in wishlist.games.all():
+        wishlist.games.remove(game)
+    else:
+        wishlist.games.add(game)
+
+    return redirect("game_detail", game_id=game.id)
+
+def wishlist_detail(request):
+    wishlist, created = Wishlist.objects.get_or_create(user=request.user)
+    return render(request, "wishlist/detail.html", {"wishlist": wishlist})
  
