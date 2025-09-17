@@ -1,4 +1,3 @@
-/* === Page Header === */
 .page-header {
     display: flex;
     justify-content: center;
@@ -8,7 +7,6 @@
     margin: 30px auto 20px auto;
     padding: 15px 0;
     border: 3px solid #00ffff;
-    /* cyan */
     border-radius: 12px;
     background-color: rgba(0, 0, 0, 0.5);
     box-shadow: 4px 4px 0 #000;
@@ -24,7 +22,6 @@
     text-align: center;
 }
 
-/* === CtrlPlay Logo === */
 .page-header+img {
     display: block;
     margin: 20px auto;
@@ -33,7 +30,6 @@
     image-rendering: pixelated;
 }
 
-/* === Form Container === */
 .form-container {
     width: 95%;
     max-width: 600px;
@@ -48,7 +44,12 @@
     gap: 15px;
 }
 
-/* Table styling inside form */
+.form-container h2 {
+    margin-bottom: 20px;
+    color: #ff5555;
+    text-align: center;
+}
+
 .form-container table {
     width: 100%;
     border-collapse: collapse;
@@ -66,7 +67,6 @@
     color: #f4ee46;
 }
 
-/* Input fields */
 .form-container input[type="text"],
 .form-container input[type="number"],
 .form-container input[type="file"],
@@ -83,7 +83,6 @@
     outline: none;
 }
 
-/* Input focus */
 .form-container input:focus,
 .form-container textarea:focus,
 .form-container select:focus {
@@ -91,14 +90,12 @@
     box-shadow: 2px 2px 0 #000;
 }
 
-/* Submit button */
 .form-container .btn.submit {
     font-size: var(--font-l);
     font-weight: bold;
     border-radius: 6px;
     padding: 6px 12px;
     color: #55ff55;
-    /* retro green */
     border: 2px solid #55ff55;
     background-color: #000;
     box-shadow: 2px 2px 0 #000;
@@ -110,11 +107,9 @@
     transform: translate(-2px, -2px);
     box-shadow: 4px 4px 0 #000;
     color: #ffaa00;
-    /* retro orange on hover */
     border-color: #ffaa00;
 }
 
-/* Responsive */
 @media only screen and (min-width: 768px) {
     .form-container {
         padding: 30px;
@@ -142,7 +137,6 @@
     outline: none;
 }
 
-/* Optional hover/focus retro effect */
 .form-container input:hover,
 .form-container input:focus,
 .form-container textarea:hover,
@@ -150,6 +144,5 @@
 .form-container select:hover,
 .form-container select:focus {
     border-color: #ffaa00;
-    /* retro orange */
     box-shadow: 2px 2px 0 #000;
 }
