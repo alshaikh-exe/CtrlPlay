@@ -14,10 +14,12 @@
         <p>{{ game.description }}</p>
         <p><strong>Price:</strong> {% if game.is_free %} Free {% else %} ${{ game.price }} {% endif %}</p>
 
+        {% if user == game.user %}
         <div class="game-actions">
             <a href="{% url 'game_update' game.id %}" class="btn warn">Edit</a>
             <a href="{% url 'game_delete' game.id %}" class="btn danger">Delete</a>
         </div>
+        {% endif %}
 
         {% if user.is_authenticated %}
         <form action="" method="post" style="display:inline;">
