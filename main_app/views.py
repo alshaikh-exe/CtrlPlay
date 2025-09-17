@@ -7,7 +7,8 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.urls import reverse_lazy
 
 # Create your views here.
 class Home(LoginView):
@@ -43,7 +44,7 @@ def game_detail(request, game_id):
 
 class GameCreate(LoginRequiredMixin, CreateView):
     model = Game
-    fields = "__all__"
+    fields = ["title", "description", "genre", "release_year", "price", "image"]
 
     def form_valid(self, form):
         
@@ -52,14 +53,24 @@ class GameCreate(LoginRequiredMixin, CreateView):
 
 class GameUpdate(UpdateView):
     model = Game
-    fields = "__all__"
+    fields = ["title", "description", "genre", "release_year", "price", "image"]
 
-    
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
-class GameDelete(DeleteView):
+    def test_func(self):
+        game = self.get_object()
+        return game.user == self.request.user
+
+class GameDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Game
-    fields = "__all__"
-    success_url = "/games/"
+    success_url = reverse_lazy('game_index')  # redirect after deletion
+
+    def test_func(self):
+        # Only allow the owner to delete this game
+        game = self.get_object()
+        return game.user == self.request.user
 
 @login_required
 def game_index(request):
