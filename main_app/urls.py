@@ -12,4 +12,6 @@ urlpatterns = [
     path('accounts/signup/', views.signup, name='signup'),
     path("checkout/", views.checkout, name="checkout"),
     path("orders/<int:order_id>/", views.order_detail, name="order_detail"),
+    path("wishlist/", views.wishlist_detail, name="wislist_detail"),
+    path("wishlist/toggle/<int:game_id>/", views.wishlist_toggle, name="wishlist_toggle"),
 ]
