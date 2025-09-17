@@ -1,0 +1,105 @@
+.cart-container {
+    width: 95%;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid #00ffff;
+    border-radius: 12px;
+    box-shadow: 4px 4px 0 #000;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+.cart-container h1 {
+    color: #f4ee46;
+    /* golden */
+    font-size: var(--font-xxl);
+    font-weight: bold;
+    text-shadow: 2px 2px 0 #000;
+    margin: 0 0 15px 0;
+}
+
+.cart-container ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cart-container li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid #00ffff;
+    border-radius: 8px;
+    box-shadow: 2px 2px 0 #000;
+    flex-wrap: wrap;
+}
+
+.cart-container li img {
+    width: 80px;
+    height: auto;
+    border-radius: 6px;
+    image-rendering: pixelated;
+}
+
+.cart-container .game-title {
+    font-weight: bold;
+    color: #f4ee46;
+}
+
+.cart-container .game-price {
+    color: #ff55ff;
+    font-weight: bold;
+}
+
+.cart-container .btn {
+    font-size: var(--font-l);
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #000;
+    box-shadow: 2px 2px 0 #000;
+    border: 2px solid;
+    transition: transform 0.1s, background-color 0.2s, color 0.2s;
+}
+
+.cart-container .btn.submit {
+    color: #55ff55;
+    border-color: #55ff55;
+}
+
+.cart-container .btn.danger {
+    color: #ff5555;
+    border-color: #ff5555;
+}
+
+.cart-container .btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 #000;
+}
+
+.cart-container .total {
+    font-size: var(--font-l);
+    font-weight: bold;
+    color: #ff55ff;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.actual-price {
+    color: white;
+}
+
+@media only screen and (min-width: 768px) {
+    .cart-container li {
+        flex-wrap: nowrap;
+    }
+}
