@@ -28,7 +28,7 @@
                 <li><a href="{% url 'game_create' %}">Upload Game</a></li>
                 <li><a href="{% url 'about' %}">Wishlist</a></li>
                 <li><a href="{% url 'about' %}">Search</a></li>
-                <li><a href="{% url 'about' %}">Profile</a></li>
+                <li><a href="{% url 'checkout' %}">Cart</a></li>
                 <li>
                     <form id="logout-form" method="post" action="{% url 'logout' %}">
                         {% csrf_token %}
