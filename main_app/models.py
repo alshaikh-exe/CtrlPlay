@@ -33,6 +33,13 @@ class Meta:
 
     def __str__(self):
         return f"{self.user.username} rated {self.game.title} {self.rating}/5"
+    
+class Wishlist(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="wishlist")
+    games = models.ManyToManyField("Game", related_name="wishlisted_by", blank=True)
+
+    def __str__(self):
+        return f"{self.user.username}'s Wishlist"
         
 class Cart(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="cart")
