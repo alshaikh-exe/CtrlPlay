@@ -239,3 +239,65 @@
     transform: translate(-2px, -2px) !important;
     box-shadow: 4px 4px 0 #000 !important;
 }
+
+.reviews form textarea,
+.reviews form input[type="text"],
+.reviews form input[type="number"],
+.reviews form input[type="email"] {
+    width: 100% !important;
+    padding: 6px 8px !important;
+    font-size: var(--font-reg) !important;
+    border: 2px solid #ff5555 !important;
+    border-radius: 6px !important;
+    background-color: #000 !important;
+    color: #ffffff !important;
+    box-shadow: 2px 2px 0 #000 !important;
+    outline: none !important;
+    resize: vertical !important;
+}
+
+.reviews form textarea:focus,
+.reviews form input:focus {
+    border-color: #ffaa00 !important;
+    box-shadow: 2px 2px 0 #000 !important;
+}
+
+.reviews form textarea#id_comment {
+    width: 100% !important;
+    padding: 6px 8px !important;
+    border-radius: 6px !important;
+    border: 2px solid #ff5555 !important;
+    background-color: #000 !important;
+    color: #fff !important;
+    box-shadow: 2px 2px 0 #000 !important;
+    font-size: var(--font-reg) !important;
+    resize: vertical !important;
+}
+
+.reviews form select#id_rating {
+    width: 100% !important;
+    padding: 6px 8px !important;
+    border-radius: 6px !important;
+    border: 2px solid #ff5555 !important;
+    background-color: #000 !important;
+    color: #fff !important;
+    box-shadow: 2px 2px 0 #000 !important;
+    font-size: var(--font-reg) !important;
+}
+
+.reviews form textarea#id_comment:focus,
+.reviews form select#id_rating:focus {
+    border-color: #ffaa00 !important;
+    box-shadow: 2px 2px 0 #000 !important;
+}
+
+.reviews form label[for="id_comment"],
+.reviews form label[for="id_rating"] {
+    color: white !important;
+    font-weight: bold;
+}
+
+.reviews form label[for="id_comment"] {
+    color: white !important;
+    font-weight: bold;
+}
