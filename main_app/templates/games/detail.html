@@ -36,7 +36,13 @@
             {% csrf_token %}
             <input type="hidden" name="action" value="add" />
             <input type="hidden" name="game_id" value="{{ game.id }}" />
+            {% if owns_game %}
+            <button type="submit" class="btn submit" disabled>Already Owned</button>
+            {% elif in_cart %}
+            <button type="submit" class="btn submit" disabled>In Cart</button>
+            {% else %}
             <button type="submit" class="btn submit">Add to Cart</button>
+            {% endif %}
         </form>
         {% else %}
         <p><a href="{% url 'login' %}">Login</a> to add this game to your wishlist or cart.</p>

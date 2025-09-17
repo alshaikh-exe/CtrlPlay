@@ -24,6 +24,15 @@ def game_detail(request, game_id):
     game = get_object_or_404(Game, id=game_id)
     reviews = game.reviews.all() 
 
+    owns_game = False
+    in_cart = False
+
+    if request.user.is_authenticated:
+        owns_game = Order.objects.filter(user=request.user, games=game).exists()
+
+        cart, created = Cart.objects.get_or_create(user=request.user)
+        in_cart = cart.games.filter(id=game.id).exists()
+
     if request.method == "POST":
         form = ReviewForm(request.POST)
         if form.is_valid():
@@ -39,7 +48,10 @@ def game_detail(request, game_id):
         "game": game,
         "reviews": reviews,
         "form": form,
+        "owns_game": owns_game,
+        "in_cart": in_cart,
     }
+
     return render(request, "games/detail.html", context)
 
 class GameCreate(LoginRequiredMixin, CreateView):

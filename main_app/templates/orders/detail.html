@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Order #{{ order.id }}</h1>
+
+{% if order.games.all %}
+<ul>
+    {% for game in order.games.all %}
+    <li>
+        <img src="{{ game.image }}" alt="{{ game.title }}" width="100" />
+        {{ game.title }} — ${{ game.price }}
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>This order has no games.</p>
+{% endif %}
+
+<a href="{% url 'orders_index' %}">Back to Orders</a>
+{% endblock %}
