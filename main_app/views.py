@@ -117,18 +117,20 @@ def order_detail(request, order_id):
     order = get_object_or_404(Order, id=order_id, user=request.user)
     return render(request, "orders/detail.html", {"order": order})
 
-def wishlist_toggle(request, game_id):
-    game = get_object_or_404(Game, id=game_id)
+def wishlist_index(request):
     wishlist, created = Wishlist.objects.get_or_create(user=request.user)
 
-    if game in wishlist.games.all():
-        wishlist.games.remove(game)
-    else:
-        wishlist.games.add(game)
+    if request.method == "POST":
+        game_id = request.POST.get("game_id")
+        action = request.POST.get("action")
+        game = get_object_or_404(Game, id=game_id)
 
-    return redirect("game_detail", game_id=game.id)
+        if action == "add" and game not in wishlist.games.all():
+            wishlist.games.add(game)
+        elif action == "remove" and game in wishlist.games.all():
+            wishlist.games.remove(game)
 
-def wishlist_detail(request):
-    wishlist, created = Wishlist.objects.get_or_create(user=request.user)
-    return render(request, "wishlist/detail.html", {"wishlist": wishlist})
+        return redirect("wishlist_index")
+
+    return render(request, "wishlist/index.html", {"wishlist": wishlist})
  

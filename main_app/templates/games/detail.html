@@ -20,6 +20,18 @@
         </div>
 
         {% if user.is_authenticated %}
+        <form action="{% url 'wishlist_index' %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            {% if game in request.user.wishlist.games.all %}
+            <input type="hidden" name="action" value="remove" />
+            <button type="submit" class="btn danger">Unlike</button>
+            {% else %}
+            <input type="hidden" name="action" value="add" />
+            <button type="submit" class="btn submit">Like</button>
+            {% endif %}
+            <input type="hidden" name="game_id" value="{{ game.id }}" />
+        </form>
+
         <form action="{% url 'cart_detail' %}" method="post" style="display:inline;">
             {% csrf_token %}
             <input type="hidden" name="action" value="add" />
@@ -27,7 +39,7 @@
             <button type="submit" class="btn submit">Add to Cart</button>
         </form>
         {% else %}
-        <p><a href="{% url 'login' %}">Login</a> to add this game to your cart.</p>
+        <p><a href="{% url 'login' %}">Login</a> to add this game to your wishlist or cart.</p>
         {% endif %}
 
         <section class="reviews">

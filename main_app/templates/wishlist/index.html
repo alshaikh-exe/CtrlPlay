@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/wishlist.css' %}" />
+{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>My Wishlist</h1>
+</section>
+
+<section class="card-container">
+    {% if wishlist.games.all %}
+    {% for game in wishlist.games.all %}
+    <div class="card">
+        <a href="{% url 'game_detail' game.id %}">
+            <div class="card-content">
+                <div class="card-img-container">
+                    <img src="{{ game.image }}" alt="{{ game.title }}" class="card-img" />
+                </div>
+                <h2 class="card-title">{{ game.title }}</h2>
+                <p>{{ game.description }}</p>
+                <p><small>${{ game.price }}</small></p>
+            </div>
+        </a>
+
+        <!-- Remove from Wishlist Button -->
+        <form action="{% url 'wishlist_index' %}" method="post" style="margin-top: 10px;">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="remove" />
+            <input type="hidden" name="game_id" value="{{ game.id }}" />
+            <button type="submit" class="btn danger">Remove from Wishlist</button>
+        </form>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>Your wishlist is empty.</p>
+    {% endif %}
+</section>
+{% endblock %}
