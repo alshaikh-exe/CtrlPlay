@@ -9,7 +9,7 @@ class Game(models.Model):
     genre = models.CharField(max_length=100)
     release_year = models.IntegerField()
     price = models.DecimalField(max_digits=6, decimal_places=2, default=0.00)
-    image = models.URLField(max_length=800, default="static/images/batman.png")
+    image = models.URLField(max_length=800, default="static/images/ctrlPlay.png")
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
