@@ -1,8 +1,27 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}" />
+{% endblock %}
+
 {% block content %}
-<h1>The Indie Game Marketplace</h1>
-<hr />
-<p class="page-content">
-  WOOOOOOOO!
-</p>
+<div class="about-container">
+    <h1 class="about-title">About CtrlPlay</h1>
+    <p class="about-description">
+        Welcome to the indie game marketplace where you can discover, play, and enjoy carefully crafted retro-style
+        games. Built with a love for classic gaming, it’s the perfect place for both gamers and developers to connect!
+    </p>
+
+    <section class="creator-section">
+        <div class="creator-card">
+            <img src="{% static 'images/avatar.png' %}" alt="Creator Avatar" class="creator-img">
+            <h2>Abdulla Alshaikh</h2>
+            <p>Creator & Developer of CtrlPlay</p>
+            <a href="https://www.linkedin.com/in/abdullaalshaikh/" target="_blank" class="about-link">
+                <p>Follow my journey here to keep CtrlPlay growing!</p>
+            </a>
+        </div>
+    </section>
+</div>
 {% endblock %}
