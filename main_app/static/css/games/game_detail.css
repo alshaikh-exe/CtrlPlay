@@ -1,4 +1,4 @@
-/* === Game Container === */
+
 .game-container {
     padding: 30px 20px;
     display: flex;
@@ -9,7 +9,6 @@
     background: none;
 }
 
-/* Game Image */
 .game-img {
     width: 70%;
     max-width: 350px;
@@ -23,7 +22,6 @@
     margin: 0 auto;
 }
 
-/* Game Details */
 .game-details {
     width: 95%;
     display: flex;
@@ -32,7 +30,6 @@
     gap: 15px;
 }
 
-/* Game Title */
 .game-details h1 {
     color: #f4ee46;
     /* golden */
@@ -43,7 +40,6 @@
     text-align: center;
 }
 
-/* Game Description */
 .game-details p:first-of-type {
     color: #ffffff;
     font-size: var(--font-l);
@@ -53,17 +49,14 @@
     overflow-wrap: break-word;
 }
 
-/* Price */
 .game-details p:nth-of-type(2) {
     color: #ff5555;
-    /* retro red */
     font-weight: bold;
     font-size: var(--font-l);
     margin: 5px 0;
     text-align: center;
 }
 
-/* Buttons: retro pixel style */
 .game-actions,
 .game-details form {
     display: flex;
@@ -85,13 +78,11 @@
     transition: transform 0.1s, background-color 0.2s, color 0.2s;
 }
 
-/* Hover effect for buttons */
 .game-details .btn:hover {
     transform: translate(-2px, -2px);
     box-shadow: 4px 4px 0 #000;
 }
 
-/* Button Colors */
 .btn.submit {
     color: var(--submit);
     border: 2px solid var(--submit);
@@ -107,7 +98,6 @@
     border: 2px solid var(--danger);
 }
 
-/* === Reviews Section === */
 .reviews {
     width: 100%;
     max-width: 600px;
@@ -116,7 +106,6 @@
     gap: 15px;
 }
 
-/* Reviews title */
 .reviews h2 {
     color: #ffaa00;
     /* retro orange */
@@ -125,7 +114,6 @@
     margin-bottom: 10px;
 }
 
-/* Leave a review title */
 .reviews h3 {
     color: #f4ee46;
     /* retro green */
@@ -134,7 +122,6 @@
     margin: 15px 0 5px 0;
 }
 
-/* Review items */
 .reviews ul {
     list-style: none;
     padding: 0;
@@ -158,7 +145,6 @@
     overflow-wrap: break-word;
 }
 
-/* Review username + rating */
 .review-content {
     display: flex;
     flex-direction: column;
@@ -167,16 +153,13 @@
 
 .reviews li strong {
     color: #f4ee46;
-    /* golden username */
 }
 
 .reviews li small {
     color: #55ff55;
-    /* green timestamp */
     font-weight: bold;
 }
 
-/* Review buttons smaller and pixel-style */
 .reviews li .btn {
     font-size: 0.8rem;
     padding: 2px 6px;
@@ -192,7 +175,6 @@
     box-shadow: 4px 4px 0 #000;
 }
 
-/* Leave review form */
 .reviews form {
     display: flex;
     flex-direction: column;
@@ -211,7 +193,6 @@
     resize: vertical;
 }
 
-/* Responsive layout */
 @media only screen and (min-width: 768px) {
     .game-container {
         flex-direction: row;

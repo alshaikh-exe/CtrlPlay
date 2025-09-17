@@ -1,0 +1,129 @@
+
+.page-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 30px auto 20px auto;
+    padding: 15px 0;
+    border: 3px solid #00ffff; 
+    border-radius: 12px;
+    background-color: rgba(0,0,0,0.5);
+    box-shadow: 4px 4px 0 #000;
+}
+
+.page-header h1 {
+    color: #f4ee46; 
+    font-size: var(--font-xxl);
+    font-weight: bold;
+    text-shadow: 2px 2px 0 #000;
+    margin: 0;
+    text-align: center;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 95%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.card {
+    background-color: rgba(0,0,0,0.5);
+    border: 2px solid #00ffff; 
+    border-radius: 12px;
+    box-shadow: 2px 2px 0 #000;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    transition: transform 0.1s;
+}
+
+.card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 #000;
+}
+
+.card-img-container {
+    width: 100%;
+    text-align: center;
+}
+
+.card-img {
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    display: block;
+    margin: 0 auto;
+}
+
+.card-title {
+    font-size: var(--font-l);
+    font-weight: bold;
+    color: #ffaa00; 
+    margin: 10px 0 5px 0;
+    text-shadow: 1px 1px 0 #000;
+    text-align: center;
+}
+
+.card-content p:first-of-type {
+    color: #ffffff; 
+    font-size: var(--font-reg);
+    text-align: center;
+    margin: 5px 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.card-content p small {
+    color: #ff5555; 
+    font-weight: bold;
+    font-size: var(--font-reg);
+    text-align: center;
+    display: block;
+}
+
+.card form .btn.danger {
+    font-size: var(--font-reg);
+    font-weight: bold;
+    padding: 4px 10px;
+    margin-top: 10px;
+    border-radius: 6px;
+    border: 2px solid #ff5555;
+    color: #ff5555;
+    background-color: #000;
+    box-shadow: 2px 2px 0 #000;
+    cursor: pointer;
+    transition: transform 0.1s, background-color 0.2s, color 0.2s;
+}
+
+.card form .btn.danger:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 #000;
+    background-color: #ff5555;
+    color: #000;
+}
+
+.card-container p {
+    color: #ffffff;
+    font-size: var(--font-l);
+    text-align: center;
+    margin-top: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+    .card {
+        width: 220px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .card {
+        width: 250px;
+    }
+}
