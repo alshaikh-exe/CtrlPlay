@@ -56,9 +56,12 @@
                     <strong>{{ review.user.username }}</strong> rated {{ review.rating }}/5<br>
                     {{ review.comment }}<br>
                     <small>{{ review.created_at|date:"M d, Y H:i" }}</small>
+
+                    {% if user == review.user %}
+                    <a href="{% url 'review_edit' review.id %}" class="btn warn">Edit</a>
+                    <a href="{% url 'review_delete' review.id %}" class="btn danger">Delete</a>
+                    {% endif %}
                 </li>
-                {% empty %}
-                <li>No reviews yet. Be the first to review!</li>
                 {% endfor %}
             </ul>
 

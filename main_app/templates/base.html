@@ -27,8 +27,8 @@
                 <li><a href="{% url 'game_index' %}">All Games</a></li>
                 <li><a href="{% url 'game_create' %}">Upload Game</a></li>
                 <li><a href="{% url 'wishlist_index' %}">Wishlist</a></li>
-                <li><a href="{% url 'about' %}">Search</a></li>
                 <li><a href="{% url 'cart_detail' %}">Cart</a></li>
+                <li><a href="{% url 'orders_index' %}">Orders</a></li>
                 <li>
                     <form id="logout-form" method="post" action="{% url 'logout' %}">
                         {% csrf_token %}

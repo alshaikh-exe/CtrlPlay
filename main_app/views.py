@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
-from .models import Game, Cart, Order, Wishlist
+from .models import Game, Review, Cart, Order, Wishlist
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .forms import ReviewForm
 from django.contrib.auth.views import LoginView
@@ -138,7 +138,7 @@ def checkout(request):
 
 @login_required
 def orders_index(request):
-    orders = Order.objects.filter(user=request.user).order_by('-id')
+    orders = Order.objects.filter(user=request.user).order_by('-created_at')
     return render(request, "orders/index.html", {"orders": orders})
 
 def order_detail(request, order_id):
@@ -161,4 +161,30 @@ def wishlist_index(request):
         return redirect("wishlist_index")
 
     return render(request, "wishlist/index.html", {"wishlist": wishlist})
+
+@login_required
+def review_edit(request, review_id):
+    review = get_object_or_404(Review, id=review_id, user=request.user)
+
+    if request.method == "POST":
+        form = ReviewForm(request.POST, instance=review)
+        if form.is_valid():
+            form.save()
+            return redirect("game_detail", game_id=review.game.id)
+    else:
+        form = ReviewForm(instance=review)
+
+    return render(request, "reviews/edit.html", {"form": form, "review": review})
+
+@login_required
+def review_delete(request, review_id):
+    review = get_object_or_404(Review, id=review_id, user=request.user)
+
+    if request.method == "POST":
+        game_id = review.game.id
+        review.delete()
+        return redirect("game_detail", game_id=game_id)
+
+    return render(request, "reviews/delete.html", {"review": review})
+
  
