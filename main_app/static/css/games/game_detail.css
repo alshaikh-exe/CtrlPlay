@@ -1,4 +1,3 @@
-
 .game-container {
     padding: 30px 20px;
     display: flex;
@@ -108,7 +107,6 @@
 
 .reviews h2 {
     color: #ffaa00;
-    /* retro orange */
     font-size: var(--font-xl);
     text-align: left;
     margin-bottom: 10px;
@@ -116,7 +114,6 @@
 
 .reviews h3 {
     color: #f4ee46;
-    /* retro green */
     font-size: var(--font-l);
     text-align: left;
     margin: 15px 0 5px 0;
@@ -133,7 +130,6 @@
 .reviews li {
     background-color: rgba(0, 0, 0, 0.5);
     border: 2px solid #00ffff;
-    /* cyan border */
     border-radius: var(--card-border-radius);
     padding: 10px 12px;
     color: #ffffff;
@@ -210,4 +206,36 @@
         width: 60%;
         align-items: flex-start;
     }
+}
+
+.game-details .btn.wishlist-like {
+    background-color: #000 !important;
+    color: #ff55ff !important;
+    border: 2px solid #ff55ff !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+}
+
+.game-details .btn.wishlist-like:hover {
+    background-color: #000 !important;
+    color: #ff99ff !important;
+    border-color: #ff99ff !important;
+    transform: translate(-2px, -2px) !important;
+    box-shadow: 4px 4px 0 #000 !important;
+}
+
+.game-details .btn.wishlist-unlike {
+    background-color: #000 !important;
+    color: #aa55ff !important;
+    border: 2px solid #aa55ff !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+}
+
+.game-details .btn.wishlist-unlike:hover {
+    background-color: #000 !important;
+    color: #cc88ff !important;
+    border-color: #cc88ff !important;
+    transform: translate(-2px, -2px) !important;
+    box-shadow: 4px 4px 0 #000 !important;
 }
