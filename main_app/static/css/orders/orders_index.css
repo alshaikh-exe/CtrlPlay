@@ -1,0 +1,71 @@
+.orders-container {
+    width: 95%;
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid #00ffff;
+    border-radius: 12px;
+    box-shadow: 4px 4px 0 #000;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+.orders-container h1 {
+    font-size: var(--font-xxl);
+    font-weight: bold;
+    color: #ffaa00;
+    text-shadow: 2px 2px 0 #000;
+    margin: 0 0 15px 0;
+}
+
+.orders-container ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.orders-container li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px 12px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 2px solid #ff00aa;
+    border-radius: 8px;
+    box-shadow: 2px 2px 0 #000;
+}
+
+.orders-container li a {
+    font-weight: bold;
+    color: #f4ee46;
+    text-decoration: none;
+    font-size: var(--font-l);
+}
+
+.orders-container li a:hover {
+    text-decoration: underline;
+}
+
+.order-info {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.order-date {
+    color: #55ff55;
+    /* subtle green for timestamp */
+    font-size: var(--font-reg);
+}
+
+@media only screen and (min-width: 768px) {
+    .orders-container li {
+        flex-wrap: nowrap;
+    }
+}

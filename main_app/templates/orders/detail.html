@@ -1,19 +1,30 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/orders/orders_detail.css' %}">
+{% endblock %}
+
 {% block content %}
-<h1>Order #{{ order.id }}</h1>
+<div class="order-container">
+    <h1>Order #{{ order.id }}</h1>
 
-{% if order.games.all %}
-<ul>
-    {% for game in order.games.all %}
-    <li>
-        <img src="{{ game.image }}" alt="{{ game.title }}" width="100" />
-        {{ game.title }} — ${{ game.price }}
-    </li>
-    {% endfor %}
-</ul>
-{% else %}
-<p>This order has no games.</p>
-{% endif %}
+    {% if order.games.all %}
+    <ul>
+        {% for game in order.games.all %}
+        <li>
+            <img src="{{ game.image }}" alt="{{ game.title }}" class="game-img" />
+            <span class="game-title">{{ game.title }}</span> —
+            <span class="game-price">${{ game.price }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>This order has no games.</p>
+    {% endif %}
 
-<a href="{% url 'orders_index' %}">Back to Orders</a>
+    <p class="order-date"><strong><span class="date-title">Created At:</span></strong> {{ order.created_at|date:"M d, Y H:i" }}</p>
+
+    <a href="{% url 'orders_index' %}" class="btn back-btn">Back to Orders</a>
+</div>
 {% endblock %}
