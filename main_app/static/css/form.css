@@ -7,14 +7,16 @@
     max-width: 800px;
     margin: 30px auto 20px auto;
     padding: 15px 0;
-    border: 3px solid #00ffff; /* cyan */
+    border: 3px solid #00ffff;
+    /* cyan */
     border-radius: 12px;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     box-shadow: 4px 4px 0 #000;
 }
 
 .page-header h1 {
-    color: #f4ee46; /* golden */
+    color: #f4ee46;
+    /* golden */
     font-size: var(--font-xxl);
     font-weight: bold;
     text-shadow: 2px 2px 0 #000;
@@ -23,7 +25,7 @@
 }
 
 /* === CtrlPlay Logo === */
-.page-header + img {
+.page-header+img {
     display: block;
     margin: 20px auto;
     width: 200px;
@@ -37,7 +39,7 @@
     max-width: 600px;
     margin: 0 auto 40px auto;
     padding: 20px;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     border: 2px solid #00ffff;
     border-radius: 12px;
     box-shadow: 4px 4px 0 #000;
@@ -61,7 +63,7 @@
 .form-container th {
     text-align: left;
     padding-bottom: 6px;
-    color: #f4ee46; 
+    color: #f4ee46;
 }
 
 /* Input fields */
@@ -85,7 +87,7 @@
 .form-container input:focus,
 .form-container textarea:focus,
 .form-container select:focus {
-    border-color: white; 
+    border-color: white;
     box-shadow: 2px 2px 0 #000;
 }
 
@@ -95,7 +97,8 @@
     font-weight: bold;
     border-radius: 6px;
     padding: 6px 12px;
-    color: #55ff55; /* retro green */
+    color: #55ff55;
+    /* retro green */
     border: 2px solid #55ff55;
     background-color: #000;
     box-shadow: 2px 2px 0 #000;
@@ -106,7 +109,8 @@
 .form-container .btn.submit:hover {
     transform: translate(-2px, -2px);
     box-shadow: 4px 4px 0 #000;
-    color: #ffaa00; /* retro orange on hover */
+    color: #ffaa00;
+    /* retro orange on hover */
     border-color: #ffaa00;
 }
 
@@ -116,7 +120,36 @@
         padding: 30px;
     }
 
-    .page-header + img {
+    .page-header+img {
         width: 220px;
     }
+}
+
+.form-container input[type="text"],
+.form-container input[type="password"],
+.form-container input[type="email"],
+.form-container input[type="number"],
+.form-container textarea,
+.form-container select {
+    width: 100%;
+    padding: 6px 8px;
+    font-size: var(--font-reg);
+    border: 2px solid #ff5555;
+    border-radius: 6px;
+    background-color: #000;
+    color: #ffffff;
+    box-shadow: 2px 2px 0 #000;
+    outline: none;
+}
+
+/* Optional hover/focus retro effect */
+.form-container input:hover,
+.form-container input:focus,
+.form-container textarea:hover,
+.form-container textarea:focus,
+.form-container select:hover,
+.form-container select:focus {
+    border-color: #ffaa00;
+    /* retro orange */
+    box-shadow: 2px 2px 0 #000;
 }

@@ -2,6 +2,7 @@
 {% load static %}
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+<link rel="stylesheet" href="{% static 'css/form.css' %}" />
 {% endblock %}
 
 {% block content %}
@@ -26,10 +27,10 @@
     </section>
     {% else %}
     <section class="login-section">
-        <form action="{% url 'home' %}" method="post" class="login-form">
+        <form action="{% url 'home' %}" method="post" class="form-container" autocomplete="off">
             <h2>Login</h2>
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ form.as_table }}
             <input type="hidden" name="next" value="{{ next }}" />
             <button type="submit" class="btn submit">Login</button>
         </form>
