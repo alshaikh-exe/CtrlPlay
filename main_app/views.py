@@ -44,6 +44,16 @@ def game_detail(request, game_id):
     else:
         form = ReviewForm()
 
+    if request.method == "POST":
+        if "wishlist_action" in request.POST:
+            action = request.POST.get("wishlist_action")
+            wishlist, _ = Wishlist.objects.get_or_create(user=request.user)
+            if action == "add":
+                wishlist.games.add(game)
+            elif action == "remove":
+                wishlist.games.remove(game)
+            return redirect("game_detail", game_id=game.id)
+
     context = {
         "game": game,
         "reviews": reviews,

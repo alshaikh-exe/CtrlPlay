@@ -20,17 +20,18 @@
         </div>
 
         {% if user.is_authenticated %}
-        <form action="{% url 'wishlist_index' %}" method="post" style="display:inline;">
+        <form action="" method="post" style="display:inline;">
             {% csrf_token %}
             {% if game in request.user.wishlist.games.all %}
-            <input type="hidden" name="action" value="remove" />
+            <input type="hidden" name="wishlist_action" value="remove" />
             <button type="submit" class="btn danger">Unlike</button>
             {% else %}
-            <input type="hidden" name="action" value="add" />
+            <input type="hidden" name="wishlist_action" value="add" />
             <button type="submit" class="btn submit">Like</button>
             {% endif %}
             <input type="hidden" name="game_id" value="{{ game.id }}" />
         </form>
+
 
         {% if owns_game %}
         <button class="btn submit" disabled>Already Owned</button>
