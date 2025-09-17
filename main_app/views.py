@@ -96,7 +96,6 @@ def signup(request):
 
 @login_required
 def cart_detail(request):
-    action = None
     cart, created = Cart.objects.get_or_create(user=request.user)
 
     if request.method == "POST":
@@ -104,25 +103,31 @@ def cart_detail(request):
         game_id = request.POST.get("game_id")
         game = get_object_or_404(Game, id=game_id)
 
-    if action == "add":
-        if game not in cart.games.all():
+        if action == "add" and game not in cart.games.all():
             cart.games.add(game)
-    elif action == "remove":
-        if game in cart.games.all():
+
+        elif action == "remove" and game in cart.games.all():
             cart.games.remove(game)
-        return redirect("cart_detail")
+
+        return redirect("cart_detail") 
 
     return render(request, "cart/detail.html", {"cart": cart})
 
+@login_required
 def checkout(request):
     cart, created = Cart.objects.get_or_create(user=request.user)
-    
-    order = Order.objects.create(user=request.user)
-    order.games.set(cart.games.all())
 
-    cart.games.clear()
+    if cart.games.exists():  # only create order if cart has games
+        order = Order.objects.create(user=request.user)
+        order.games.set(cart.games.all())
+        cart.games.clear()
 
-    return redirect("order_detail", order_id=order.id)
+    return redirect("orders_index")
+
+@login_required
+def orders_index(request):
+    orders = Order.objects.filter(user=request.user).order_by('-id')
+    return render(request, "orders/index.html", {"orders": orders})
 
 def order_detail(request, order_id):
     order = get_object_or_404(Order, id=order_id, user=request.user)
