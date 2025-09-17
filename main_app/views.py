@@ -83,24 +83,28 @@ def signup(request):
     context = {'form': form, 'error_message': error_message}
     return render(request, 'signup.html', context)
 
+@login_required
 def cart_detail(request):
+    action = None
     cart, created = Cart.objects.get_or_create(user=request.user)
+
+    if request.method == "POST":
+        action = request.POST.get("action")
+        game_id = request.POST.get("game_id")
+        game = get_object_or_404(Game, id=game_id)
+
+    if action == "add":
+        if game not in cart.games.all():
+            cart.games.add(game)
+    elif action == "remove":
+        if game in cart.games.all():
+            cart.games.remove(game)
+        return redirect("cart_detail")
+
     return render(request, "cart/detail.html", {"cart": cart})
-
-def add_to_cart(request, game_id):
-    game = get_object_or_404(Game, id=game_id)
-    cart, created = Cart.objects.get_or_create(user=request.user)
-
-    if game not in cart.games.all():
-        cart.games.add(game)
-
-    return redirect("cart_detail")
 
 def checkout(request):
     cart, created = Cart.objects.get_or_create(user=request.user)
-
-    if not cart.games.exists():
-        return redirect("game_index")
     
     order = Order.objects.create(user=request.user)
     order.games.set(cart.games.all())
