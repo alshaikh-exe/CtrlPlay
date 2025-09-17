@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/games/game_detail.css' %}" />
+{% endblock %}
+
+{% block content %}
+<section class="game-container">
+    <div class="game-img">
+        <img src="{{ game.image }}" alt="{{ game.title }}" class="card-img" />
+    </div>
+    <div class="game-details">
+        <h1>{{ game.title }}</h1>
+        <p>{{ game.description }}</p>
+        <p><strong>Price:</strong> {% if game.is_free %} Free {% else %} ${{ game.price }} {% endif %}</p>
+
+        <div class="game-actions">
+            <a href="{% url 'game_update' game.id %}" class="btn warn">Edit</a>
+            <a href="{% url 'game_delete' game.id %}" class="btn danger">Delete</a>
+        </div>
+
+        <section class="reviews">
+            <h2>Reviews</h2>
+            <ul>
+                {% for review in reviews %}
+                <li>
+                    <strong>{{ review.user.username }}</strong> rated {{ review.rating }}/5<br>
+                    {{ review.comment }}<br>
+                    <small>{{ review.created_at|date:"M d, Y H:i" }}</small>
+                </li>
+                {% empty %}
+                <li>No reviews yet. Be the first to review!</li>
+                {% endfor %}
+            </ul>
+
+            {% if user.is_authenticated %}
+            <h3>Leave a Review</h3>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn submit">Submit Review</button>
+            </form>
+            {% else %}
+            <p><a href="{% url 'login' %}">Log in</a> to leave a review.</p>
+            {% endif %}
+        </section>
+
+    </div>
+</section>
+{% endblock %}
