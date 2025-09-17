@@ -6,22 +6,37 @@
 
 {% block content %}
 
-<h1>Home Page</h1>
+<div class="home-container">
 
-<section class="logo-container">
-  <!-- Your logo or other content here -->
-</section>
+    <!-- Logo + title -->
+    <section class="logo-container">
+        <img src="{% static 'images/ctrlPlay.png' %}" alt="CtrlPlay Logo" class="main-logo">
+        <h1 class="arcade-title">Welcome to CtrlPlay</h1>
+    </section>
 
-<!-- Login form section -->
-{% if not user.is_authenticated %}
-<section>
-  <form action="{% url 'home' %}" method="post" class="login">
-    <h1>Login</h1>
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="hidden" name="next" value="{{ next }}" />
-    <button type="submit" class="btn submit">Login</button>
-  </form>
-</section>
-{% endif %}
+    {% if user.is_authenticated %}
+    <section class="welcome">
+        <h2>Hello, {{ user.username }}!</h2>
+        <p>Jump right in:</p>
+        <div class="arcade-buttons">
+            <a href="{% url 'game_index' %}" class="btn submit">Play Games</a>
+            <a href="{% url 'wishlist_index' %}" class="btn secondary">Wishlist</a>
+            <a href="{% url 'cart_detail' %}" class="btn warn">Cart</a>
+        </div>
+    </section>
+    {% else %}
+    <section class="login-section">
+        <form action="{% url 'home' %}" method="post" class="login-form">
+            <h2>Login</h2>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="hidden" name="next" value="{{ next }}" />
+            <button type="submit" class="btn submit">Login</button>
+        </form>
+        <p class="signup-text">No account? <a href="{% url 'signup' %}">Sign up here</a></p>
+    </section>
+    {% endif %}
+
+</div>
+
 {% endblock %}
