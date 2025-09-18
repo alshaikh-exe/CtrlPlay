@@ -1,31 +1,35 @@
 # 👾 CtrlPlay
 
-A full-stack Django application where indie developers can showcase and sell their games, and gamers can purchase, download, and review them.
-Built as part of my General Assembly project to combine authentication, CRUD, and multimedia management into one platform.
+CtrlPlay is an indie game marketplace where users can showcase, sell their games and also browse, purchase, download, and review them.
 
-## Features
+<img width="750" height="1000" alt="Screenshot 2025-09-18 at 9 08 25 am" src="https://github.com/user-attachments/assets/bfe27a34-b395-4ae5-8566-af35977e745c" />
 
-- 👤 User accounts (developer vs gamer roles)
-- 🎮 Game uploads (cover image, description, downloadable file)
-- 🛒 Cart system & purchases
-- ⭐ Ratings & reviews
-- 🔒 Authorization (only devs upload, only buyers download) 
+## Features 🚀
 
-## Stretch Goals
+- 👤 User Accounts → Sign up, log in, and manage your profile.
+- 🎮 Game Management → Upload games with cover images, descriptions, and downloadable files (soon).
+- 🛒 Cart & Purchases → Add games to your cart, purchase, and download instantly.
+- ⭐ Ratings & Reviews → Leave reviews and ratings to guide other players.
+- ❤️ Wishlist → Save your favorite games for later.
+- 🔒 Authorization & Permissions → Only authors can edit or delete their own games & reviews.
+- 🖥️ Responsive UI → Pixel-art inspired retro styling with a clean, intuitive layout.
 
-- 💳 Stripe/PayPal integration for real payments
-- 🏷️ Game categories & tags
-- ❤️ Wishlists
-- 📊 Developer dashboards
+## Stretch Goals 🎯
+- 💳 Stripe/PayPal integration → Enable real payment support.
+- 🏷️ Game categories, tags & filters → Improve discovery & browsing.
+- 📊 User dashboards → See uploads, purchases, and reviews in one place.
+- 👥 Enhanced social features → Follow users, discussion threads, and activity feeds.
 
-## Technologies Used
+## Tech Stack 💻
+Backend: Django, Python
+Frontend: Django Templates, CSS (pixel-art inspired)
+Database: PostgreSQL
+Authentication: Django session-based authentication
 
-- **Backend:** Django, Python
-- **Frontend:** Django Templates, CSS (Bootstrap/Tailwind)
-- **Database:** SQLite (dev), PostgreSQL (production)
-- **Auth:** Django built-in session authentication
-- **Version Control:** Git & GitHub
-- **Deployment:** Render / Heroku
+## Developer’s Note 🖋️
+CtrlPlay was my way of merging e-commerce functionality with a gaming-inspired aesthetic. It challenged me to balance backend logic with frontend creativity: from secure authentication & CRUD operations to retro-styled design and responsive layouts.
 
-## Attributions
-Concept, design & code by: **Abdulla Alshaikh**
+I see CtrlPlay not just as a portfolio project but as a foundation that could evolve into a community-driven indie game marketplace.
+
+## Attributions 🎥
+Concept, design & code: Abdulla Alshaikh
