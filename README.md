@@ -21,10 +21,10 @@ CtrlPlay is an indie game marketplace where users can showcase, sell their games
 - 👥 Enhanced social features → Follow users, discussion threads, and activity feeds.
 
 ## Tech Stack 💻
-Backend: Django, Python
-Frontend: Django Templates, CSS (pixel-art inspired)
-Database: PostgreSQL
-Authentication: Django session-based authentication
+- Backend: Django, Python
+- Frontend: Django Templates, CSS (pixel-art inspired)
+- Database: PostgreSQL
+- Authentication: Django session-based authentication
 
 ## Developer’s Note 🖋️
 CtrlPlay was my way of merging e-commerce functionality with a gaming-inspired aesthetic. It challenged me to balance backend logic with frontend creativity: from secure authentication & CRUD operations to retro-styled design and responsive layouts.
@@ -32,4 +32,4 @@ CtrlPlay was my way of merging e-commerce functionality with a gaming-inspired a
 I see CtrlPlay not just as a portfolio project but as a foundation that could evolve into a community-driven indie game marketplace.
 
 ## Attributions 🎥
-Concept, design & code: Abdulla Alshaikh
+Concept, design & code: **Abdulla Alshaikh**
